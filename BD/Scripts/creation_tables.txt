@@ -1,0 +1,86 @@
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+# Table: CapteurBT
+#------------------------------------------------------------
+
+CREATE TABLE CapteurBT(
+        IDCapteur   int (11) Auto_increment  NOT NULL ,
+        Latitude    Numeric (10,8) NOT NULL ,
+        Longitude   Numeric (10,8) NOT NULL ,
+        Description Varchar (50) NOT NULL ,
+        IDRoute     Int NOT NULL ,
+        PRIMARY KEY (IDCapteur )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: MarkerGoogle
+#------------------------------------------------------------
+
+CREATE TABLE MarkerGoogle(
+        IDMarker  int (11) Auto_increment  NOT NULL ,
+        Latitude  Numeric (10,8) NOT NULL ,
+        Longitude Numeric (10,8) NOT NULL ,
+        Direction Varchar (1) NOT NULL ,
+        IDCapteur Int NOT NULL ,
+        PRIMARY KEY (IDMarker )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Paire_Markers
+#------------------------------------------------------------
+
+CREATE TABLE Paire_Markers(
+        IDPaire       int (11) Auto_increment  NOT NULL ,
+        IDMarker_Orig Int NOT NULL ,
+        IDMarker_Dest Int NOT NULL ,
+        Distance_km   Float NOT NULL ,
+	NomTableDonnees Varchar (75) NOT NULL ,
+        PRIMARY KEY (IDPaire )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Itineraire
+#------------------------------------------------------------
+
+CREATE TABLE Itineraire(
+        IDItineraire int (11) Auto_increment  NOT NULL ,
+        Description  Varchar (100) NOT NULL ,
+        PRIMARY KEY (IDItineraire )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Route
+#------------------------------------------------------------
+
+CREATE TABLE Route(
+        IDRoute int (11) Auto_increment  NOT NULL ,
+        Numero  Int NOT NULL ,
+        Nom     Varchar (50) NOT NULL ,
+        PRIMARY KEY (IDRoute )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Assoc_paire_itin
+#------------------------------------------------------------
+
+CREATE TABLE Assoc_paire_itin(
+        IDItineraire Int NOT NULL ,
+        IDPaire      Int NOT NULL ,
+        PRIMARY KEY (IDItineraire ,IDPaire )
+)ENGINE=InnoDB;
+
+ALTER TABLE CapteurBT ADD CONSTRAINT FK_CapteurBT_IDRoute FOREIGN KEY (IDRoute) REFERENCES Route(IDRoute);
+ALTER TABLE MarkerGoogle ADD CONSTRAINT FK_MarkerGoogle_IDCapteur FOREIGN KEY (IDCapteur) REFERENCES CapteurBT(IDCapteur);
+ALTER TABLE Assoc_paire_itin ADD CONSTRAINT FK_Assoc_paire_itin_IDItineraire FOREIGN KEY (IDItineraire) REFERENCES Itineraire(IDItineraire);
+ALTER TABLE Assoc_paire_itin ADD CONSTRAINT FK_Assoc_paire_itin_IDPaire FOREIGN KEY (IDPaire) REFERENCES Paire_Markers(IDPaire);
+ALTER TABLE Paire_Markers ADD CONSTRAINT FK_Paire_IDMarker1 FOREIGN KEY ( IDMarker_Orig ) REFERENCES MarkerGoogle( IDMarker ) ;
+ALTER TABLE Paire_Markers ADD CONSTRAINT FK_Paire_IDMarker2 FOREIGN KEY ( IDMarker_Dest ) REFERENCES MarkerGoogle( IDMarker ) ;

@@ -1,0 +1,7 @@
+Genere des donnees pour la journee du 1er juin 2016 (12h00AM à 11h59PM) et pour des temps de parcours (traveltime) variant de 1.5min à 8min.
+
+INSERT INTO `PAversPB` (`ID`,`TravelTime`,`Times`) VALUES (null, FLOOR( 90 + RAND( ) *480 ), FLOOR( 1451606400 + RAND( ) *(1451692799 - 1451606400)));
+
+Pour générer de nouvelles données Times:
+UPDATE PAversPB SET Times = FLOOR( 1451606400 + RAND( ) * ( 1451692799 -1451606400 ) )
+UPDATE PAversPB SET TravelTime =  FLOOR( 90 + RAND( ) *480 )

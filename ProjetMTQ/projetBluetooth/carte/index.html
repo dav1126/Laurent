@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Données Bluetooth</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script><!--nécessaire pour les w3-include-html-->
+</head>
+<body>
+    <div w3-include-html="../../commun/header.html" id="hautDePage"></div><!--Inclusion du header-->
+    <div id="corps">
+        <h1>Circulation en direct</h1>
+        <button id="rafraichirBtn">Rafraîchir</button>
+        <div>
+            <span>Dernière mise à jour: </span>
+            <span id="tempsMiseAJourSpan"></span>
+        </div>
+        <div class=carteEtControle>
+            <div id="cartesDiv">
+                <div id="carteReseauDiv"></div>
+                <div id="carteItineraireDiv"></div>
+            </div>
+            <div id="panneauDeControle">
+                <h3>Panneau de contrôle</h3>
+                <ul class="tabrow">
+                    <li class="onglet">Réseau</li>
+                    <li class="onglet">Itinéraire</li>
+                </ul>
+                <div id='panneauDeControleContentDiv'>
+<!--
+                <div class="onglet">Réseau</div>
+                <div class="onglet">Itinéraire</div>    
+-->
+                <template id="reseauTemplate">
+                    <div id="reseauDiv">
+                        <input type="checkbox" id="filtrerCheckbox">
+                        <span>Filtrer par:</span>
+                        <div class="filtreDiv">
+                            <div class="optionsFiltre">
+                                Origine:
+                                <select id=origineSelect>          
+                                </select>
+                            </div>
+                            <div class="optionsFiltre">
+                                Destination:
+                                <select id=destinationSelect>
+                                </select>
+                            </div>
+                        </div>
+                        <div id = "allCheckboxsDiv"></div>
+                    </div>
+                </template> 
+                <template id="itinerairesTemplate">
+                    <div id="itinerairesDiv">
+                        <div id="ajouterItinDiv" class="sousSection">
+                            <button class="sousOnglet" id="sousOngletAjouter">Ajouter un itinéraire</button>
+                            <div id="itinStandardDiv" class="sousSection2">
+                                <div class="sousTitre">
+                                    <input type="checkbox" id="itinStandardChkBox">
+                                    <span>prédéfini</span>
+                                </div>
+                                <div class="desactivable">
+                                    <div>                                       Choisir un itinéraire pour le visualiser sur la carte:
+                                    </div> 
+                                    <div id = "itinMenuDeroulantDiv">
+                                        <select id="itinSelectMenu">
+                                        </select> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="itinSurMesureDiv" class="sousSection2">
+                                <div class="sousTitre">
+                                    <input type="checkbox" id="itinSurMesureChkBox">
+                                    <span>sur mesure</span>
+                                </div>
+                                <div class="desactivable">
+                                    <div id = "itinMessageDiv"></div><!--Message par défaut spécifié en CSS-->
+                                    <div id = "itinPairesSelectionneesDiv"></div>
+                                </div>
+                                <div id="btnSurMesureDiv">
+                                <button id = "btnRecommencer">Recommencer</button>    
+                            </div>
+                            </div>
+                            <div id="btnAjouterDiv" class="sousSection2">
+                                <button id = "btnAjouterItin">Ajouter</button>
+                            </div>
+                        </div>
+                        <div id="itinChoisi" class="sousSection">    
+                             <button class="sousOnglet" id="sousOngletVisualiser">Visualiser les itinéraires ajoutés</button>
+                             <div id="itinChoisisMessage"></div><!--Message par défaut spécifié en CSS-->
+                             <div class="sousSection2">
+                                 <button id="supprimerItinChoisiBtn">Supprimer tout</button>
+                                 <div id="itinChoisisDiv"></div>
+                            </div>
+                        </div>                            
+                    </div>
+                </template>    
+                </div>
+                <div class="spinner"><!--Loading animation from http://tobiasahlin.com/spinkit/-->
+                    <span>Chargement</span>    
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+        </div>
+        <p class="noteCarte">Note: Pour actualiser la carte, l'utilisation du bouton "Rafraîchir" est plus rapide que de recharger la page au complet avec le navigateur.</p>
+    </div>
+    <div id="basDePage">MTQ 2016</div>
+    <script>w3IncludeHTML();</script><!--Script pour inclure les balises portant l'attribut w3-include-html-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVR2xT_d4rukb6Chr-_m0Vu14CM7HsZ8U&libraries=geometry"></script><!--Script de requête à l'API de google pour créer une google map.-->
+    <script src="googleMapScript.js"></script>
+</body>        
+</html>

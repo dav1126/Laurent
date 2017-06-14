@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Données Bluetooth</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="http://www.w3schools.com/lib/w3data.js"></script><!--nécessaire pour les w3-include-html-->
+</head>
+<body>
+   <!--<div w3-include-html="../../commun/header.html" id="hautDePage"></div><!--Inclusion du header-->
+   <!-- <div>
+        Insérer ici!
+    </div>
+    <div id="basDePage">MTQ 2016</div>
+    <script>w3IncludeHTML();</script><!--Script pour inclure les balises portant l'attribut w3-include-html-->
+	
+	 <div w3-include-html="../../commun/header.html" id="hautDePage"></div><!--Inclusion du header-->
+    <div class="coordonnes">  
+        <p> Veuillez saisir les données de votre Ittinéraire </p>
+            <div class="donnees"> 
+                <section class="1">
+                    <table border="1" class="Tb1">    
+                         <tr id="tr1">Origine</tr>
+                            <br>
+                             <br>
+                            <span class="Orig">
+                               <td> 
+                                   <br>
+                                   <label>Latitude:</label>
+                                    <input type="text" id="latitude"  placeholder="Entrez la latitude ici ..." autofocus/><br>
+                                   <br>
+                                    <label>Longitude:</label>
+                                    <input type="text" id="longitude" placeholder="Entrez la longitude ici ..." autofocus/>
+                                   <br>
+                                    <br>
+                                </td>
+                            </span>
+                            </table>
+                </section>
+                <section class="2">
+                     <table border="1" class="Tb2">
+                       
+                    <tr>Destination</tr>
+                    <br>
+                     <br>
+                        <span class="Dest"> 
+                            <td>
+                                 <br>
+                               <label>Latitude:</label>
+                                <input type="text"  id="latitude2" placeholder="Entrez la latitude ici ..." autofocus/><br>
+                                 <br>
+                               <label>Longitude:</label>
+                                <input type="text" id="longitude2" placeholder="Entrez la longitude ici ..." autofocus/>
+                                 <br>
+                                 <br>
+                            </td>
+                        </span>
+                     </table>
+                </section>
+                </div>
+                <br>
+                <div id="btn">
+                    <button id="btclik">valider</button>
+                    <div id="resultDistance"></div>
+                </div>
+        </div>
+    
+    <div id="resultTemps"></div>
+    
+    <div id="basDePage">MTQ 2016</div>
+    <script>w3IncludeHTML();</script><!--Script pour inclure les balises portant l'attribut w3-include-html-->
+<!--
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDynHlFQ4KEj7nNggfb3l8_4waEqyPK3EQ"
+  type="text/javascript"></script>
+-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVR2xT_d4rukb6Chr-_m0Vu14CM7HsZ8U&libraries=geometry"></script>
+<script src="distance.js"></script>
+</body>        
+</html>

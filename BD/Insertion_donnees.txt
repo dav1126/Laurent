@@ -1,0 +1,50 @@
+#ATTENTION! Les coordonnées des capteurs et des markers utilisés dans ces scripts sont bidons. 
+#Ils doivent être corrigés avec les vrais coordonnées au besoin.
+
+#-----ROUTE-------
+INSERT INTO `Route`(`IDRoute`, `Numero`, `Nom`) VALUES (null, 40, "Félix-Leclerc");
+INSERT INTO `Route`(`IDRoute`, `Numero`, `Nom`) VALUES (null, 740, "Robert-Bourassa");
+INSERT INTO `Route`(`IDRoute`, `Numero`, `Nom`) VALUES (null, 73, "Henri-IV");
+
+#-----CapteurBT-----
+INSERT INTO `CapteurBT`(`IDCapteur`, `Latitude`, `Longitude`, `Description`, `IDRoute`) VALUES (null,46.843590 ,-71.250111,"1ere av",1);
+INSERT INTO `CapteurBT`(`IDCapteur`, `Latitude`, `Longitude`, `Description`, `IDRoute`) VALUES (null,46.831280 ,-71.278426,"Pierre-Bertrand",1);
+INSERT INTO `CapteurBT`(`IDCapteur`, `Latitude`, `Longitude`, `Description`, `IDRoute`) VALUES (null,46.811512 , -71.288857,"Père-Lelièvre",2);
+INSERT INTO `CapteurBT`(`IDCapteur`, `Latitude`, `Longitude`, `Description`, `IDRoute`) VALUES (null,46.808002
+, -71.333718,"Michelet",3);
+INSERT INTO `CapteurBT`(`IDCapteur`, `Latitude`, `Longitude`, `Description`, `IDRoute`) VALUES (null,46.747940,-71.291891,"Pont Pierre-Laporte",3);
+
+#-----MarkerGoogle-----
+INSERT INTO `MarkerGoogle`(`IDMarker`, `Latitude`, `Longitude`, `Direction`, `IDCapteur`) VALUES (null, 46.843382,  -71.249895, "E", 1);
+INSERT INTO `MarkerGoogle`(`IDMarker`, `Latitude`, `Longitude`, `Direction`, `IDCapteur`) VALUES (null, 46.843488,  -71.250010, "O", 1);
+INSERT INTO `MarkerGoogle`(`IDMarker`, `Latitude`, `Longitude`, `Direction`, `IDCapteur`) VALUES (null, 46.831093,  -71.278193, "E", 2);
+INSERT INTO `MarkerGoogle`(`IDMarker`, `Latitude`, `Longitude`, `Direction`, `IDCapteur`) VALUES (null, 46.831207,  -71.278316, "O", 2);
+INSERT INTO `MarkerGoogle`(`IDMarker`, `Latitude`, `Longitude`, `Direction`, `IDCapteur`) VALUES (null, 46.811529,  -71.288999, "N", 3);
+INSERT INTO `MarkerGoogle`(`IDMarker`, `Latitude`, `Longitude`, `Direction`, `IDCapteur`) VALUES (null, 46.811545,  -71.289266, "S", 3);
+INSERT INTO `MarkerGoogle`(`IDMarker`, `Latitude`, `Longitude`, `Direction`, `IDCapteur`) VALUES (null, 46.807541,   -71.333346, "N", 4);
+INSERT INTO `MarkerGoogle`(`IDMarker`, `Latitude`, `Longitude`, `Direction`, `IDCapteur`) VALUES (null, 46.807916,   -71.333890, "S", 4);
+INSERT INTO `MarkerGoogle`(`IDMarker`, `Latitude`, `Longitude`, `Direction`, `IDCapteur`) VALUES (null, 46.747940,    -71.291891, "N", 5);
+INSERT INTO `MarkerGoogle`(`IDMarker`, `Latitude`, `Longitude`, `Direction`, `IDCapteur`) VALUES (null, 46.747874,   -71.292202, "S", 5);
+
+#----Paire_Markers----
+INSERT INTO `Paire_Markers`(`IDPaire`, `IDMarker_Orig`, `IDMarker_Dest`, `Distance_km`, `NomTableDonnees`) VALUES (null,3,1, 2.550,"PB_vers_1ereAv");
+INSERT INTO `Paire_Markers`(`IDPaire`, `IDMarker_Orig`, `IDMarker_Dest`, `Distance_km`, `NomTableDonnees`) VALUES (null,2,5, 2.554,"1ereAv_vers_PB");
+INSERT INTO `Paire_Markers`(`IDPaire`, `IDMarker_Orig`, `IDMarker_Dest`, `Distance_km`, `NomTableDonnees`) VALUES (null,5,7, 4.239,"PB_vers_PL");
+INSERT INTO `Paire_Markers`(`IDPaire`, `IDMarker_Orig`, `IDMarker_Dest`, `Distance_km`, `NomTableDonnees`) VALUES (null,6,3, 3.049,"PL_vers_PB");
+INSERT INTO `Paire_Markers`(`IDPaire`, `IDMarker_Orig`, `IDMarker_Dest`, `Distance_km`, `NomTableDonnees`) VALUES (null,5,9, 6.265,"PB_vers_Michelet");
+INSERT INTO `Paire_Markers`(`IDPaire`, `IDMarker_Orig`, `IDMarker_Dest`, `Distance_km`, `NomTableDonnees`) VALUES (null,8,3, 5.446,"Michelet_vers_PB");
+INSERT INTO `Paire_Markers`(`IDPaire`, `IDMarker_Orig`, `IDMarker_Dest`, `Distance_km`, `NomTableDonnees`) VALUES (null,7,11, 9.322,"PL_vers_PontPL");
+INSERT INTO `Paire_Markers`(`IDPaire`, `IDMarker_Orig`, `IDMarker_Dest`, `Distance_km`, `NomTableDonnees`) VALUES (null,10,6, 9.305,"PontPL_vers_PL");
+INSERT INTO `Paire_Markers`(`IDPaire`, `IDMarker_Orig`, `IDMarker_Dest`, `Distance_km`, `NomTableDonnees`) VALUES (null,9,11, 7.542,"Michelet_vers_PontPL");
+INSERT INTO `Paire_Markers`(`IDPaire`, `IDMarker_Orig`, `IDMarker_Dest`, `Distance_km`, `NomTableDonnees`) VALUES (null,10,8, 7.467,"PontPL_vers_Michelet");
+
+#------Itineraire------
+INSERT INTO `Itineraire`(`IDItineraire`, `Description`) VALUES (null,"40-PB vers PontPL par HenriIV");
+INSERT INTO `Itineraire`(`IDItineraire`, `Description`) VALUES (null,"40-PB vers PontPL par Robert-B");
+
+#------Assoc_paire_itin---------
+INSERT INTO `Assoc_paire_itin`(`IDItineraire`, `IDPaire`) VALUES (1,5);
+INSERT INTO `Assoc_paire_itin`(`IDItineraire`, `IDPaire`) VALUES (1,9);
+INSERT INTO `Assoc_paire_itin`(`IDItineraire`, `IDPaire`) VALUES (2,3);
+INSERT INTO `Assoc_paire_itin`(`IDItineraire`, `IDPaire`) VALUES (2,7);
+

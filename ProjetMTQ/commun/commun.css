@@ -1,0 +1,84 @@
+/*HEADER************************************/
+#hautDePage
+{
+    height: 2.5em;
+    display: flex;
+}
+
+#headerMenu
+{
+    flex:1;
+    background-color: rgba(0, 100, 255, 0.8);
+    text-transform: uppercase;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    border-bottom-right-radius: 10px;
+    margin-right: 10px;
+}
+
+#headerMenu a
+{
+    padding-left: 20px;
+}
+
+#headerLogo
+{
+   box-sizing: border-box;    
+   background: white;
+   height: 2.5em;
+   padding:3px;
+   margin-right: 10px;  
+}
+
+#hautDePage a
+{
+    transition: 0.2s;
+    margin: 0.5em;
+    text-decoration: none;
+    white-space: nowrap;
+}
+#hautDePage a:link
+{
+    color:white;
+}
+
+#hautDePage a:visited
+{
+    color:white;
+}
+
+#hautDePage a:hover
+{
+    color: lightgrey;
+    transform: translateY(1px);
+}
+/*****************************************
+
+/*FOOTER********************************/
+#basDePage
+{
+    background-color: #404040;
+    text-transform: uppercase;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom:0;
+    width: 100%;
+}
+/*****************************
+
+/*****CORPS DE PAGE*/
+#corps
+{
+    padding-left: 2em;
+    padding-right: 2em;
+}

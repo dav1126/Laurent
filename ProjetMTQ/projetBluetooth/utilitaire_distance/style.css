@@ -1,0 +1,81 @@
+@import url("../../commun/commun.css");
+@import url("../../commun/normalize.min.css");
+#utilDistanceHeaderLink
+{
+    color:  orange!important;
+    transform: translateY(1px) !important;
+    pointer-events: none;
+}
+
+body{
+font-family: 'pictos';   
+}
+label
+{
+    
+	display: inline-block;
+    margin-left: 10px;
+	width: 100px;
+	float:left;
+}
+
+td  label
+{
+    color: blue;
+}
+.donnees{
+max-width: 900px;;
+margin: auto;    
+
+min-width: 10%;
+ display: flex;
+ flex-wrap: wrap;
+
+}
+
+section{
+/*  margin-left: 15px;  */
+ margin: auto;
+}
+p{
+    text-align: center;
+    font-size: 40px;
+}
+section,tr{
+    text-align: center;
+   
+}
+#tr1{
+    font-size: 25px;
+}
+
+coordonnes,#btclik{
+     
+    background-color: #434343;
+    color: #999;   
+}
+#btclik{
+    margin-left: 250px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-image: -webkit-linear-gradient(100% 100% 90deg, #515151, #7A7A7A);
+    border: none;
+    border-top: 3px solid #c2c2c2;
+  transition: all 0.3s ease-out;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.2); 
+    font-size: 25px; 
+    border-radius: 8px;
+    min-width: 100px;   
+}
+#btn
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+#resultDistance{
+    margin-top: 10px;
+}
+#basDePage
+{
+    margin-bottom: 0;
+}

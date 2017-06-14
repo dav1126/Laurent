@@ -1,0 +1,8 @@
+#creation tables DonneesFiltres
+
+create table TABLENAME 
+(
+    ID int AUTO_INCREMENT PRIMARY KEY,
+    Traveltime int(10) not null,
+    Times int(10) not null
+);
